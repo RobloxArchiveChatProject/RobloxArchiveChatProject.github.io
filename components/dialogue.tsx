@@ -6,7 +6,7 @@ type user = {
 }
 
 function createPlayerLink(u: user, className: string = "link") {
-    return <a className={className} href={`https://www.roblox.com/users/${u.userId.toString()}/profile`}>
+    return <a className={className} target="_blank" rel="noreferrer" href={`https://www.roblox.com/users/${u.userId.toString()}/profile`}>
         {u.name}
     </a>
 }
