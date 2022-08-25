@@ -94,7 +94,7 @@ const Home: NextPage = () => {
           <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "15rem" }}>
             <ul className="list-none">
               {data.map((v, i) => (<li key={i}>
-                <button className="btn m-1" id={(i + tip + Math.random() * 10).toString() + "_" + uuid} onClick={() => {
+                <button className={"btn m-1 " + (i + tip + Math.random() * 10).toString() + "_" + uuid} id={(i + tip + Math.random() * 10).toString() + "_" + uuid} onClick={() => {
                   setuuid(v)
                 }}>
                   {i + ' : ' + v}
