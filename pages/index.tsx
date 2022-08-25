@@ -92,7 +92,7 @@ const Home: NextPage = () => {
             }
           </div>
 
-          <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "20rem" }}>
+          <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "15rem" }}>
             <ul className="list-none">
               {data.map((v, i) => (<li key={i}>
                 <button className="btn m-1" onClick={() => {

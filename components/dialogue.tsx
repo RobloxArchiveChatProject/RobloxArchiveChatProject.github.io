@@ -34,7 +34,7 @@ function Dialogue({ uuid, dialogue }: {
         <br />
         <div className="overflow-auto flex flex-col justify-start" style={{ maxHeight: "20rem" }}>
             {dialogue.data.map((v, i) => {
-                return <div key={i} className="font-semibold">
+                return <div key={i} className="font-semibold px-2">
                     <div className="badge"> {createPlayerLink(v.user, "d-link")}  </div> : {v.message}
                 </div>
             })}
