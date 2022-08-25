@@ -108,8 +108,8 @@ const Home: NextPage = () => {
           <div className="w-max whitespace-pre-wrap" style={{ height: "20rem" }}>
             {conversation
               ? <Dialogue uuid={uuid as any} dialogue={conversation as any}></Dialogue>
-              : <code>{`Tip: ${tip} | There is a two-minute gap between the current display and the latest commit.
-              If you encounter async problems, wait for several minutes and the data will be transferred.`}</code>}
+              : <span className="font-mono">{`Tip: ${tip} | There is a two-minute gap between the current display and the latest commit.
+              If you encounter async problems, wait for several minutes and the data will be transferred.`}</span>}
           </div>
         </div>
       </div>
