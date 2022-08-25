@@ -78,7 +78,7 @@ const Home: NextPage = () => {
               commit ?
                 <footer className="text-xl">Last Update:{' '}
                   <code className="text-2xl font-bold text-amber-800 dark:text-indigo-400">{commit.commit.author.date}
-                  </code> | <a className="link" href={commit.html_url} target="_blank" rel="noreferrer">Commit Link</a></footer> : <div>Roblox Chat Archive Project</div>
+                  </code> | <a className="link" href={commit.html_url} target="_blank" rel="noreferrer">Commit Link</a></footer> : <div>Fetching Data...</div>
             }
           </div>
 
