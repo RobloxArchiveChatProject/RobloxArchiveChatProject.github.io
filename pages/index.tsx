@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Dialogue from '../components/dialogue'
 import Header from '../sections/header'
-
 const tips: string[] = [
   "RCAP Provides you with complete chat logs!",
   "If you see any of our autonomous agents, feel free to use the commands!",
@@ -37,9 +36,9 @@ const Home: NextPage = () => {
     html_url: string
   } | undefined>(undefined)
 
-  const [tip, setTip] = useState("Tip...")
+  const [tip, setTip] = useState(0)
   useEffect(() => {
-    setTip(tips[Math.floor(Math.random() * tips.length)])
+    setTip(Math.floor(Math.random() * tips.length))
   }, [tip])
 
   useEffect(() => {
@@ -95,7 +94,7 @@ const Home: NextPage = () => {
           <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "15rem" }}>
             <ul className="list-none">
               {data.map((v, i) => (<li key={i}>
-                <button className="btn m-1" onClick={() => {
+                <button className="btn m-1" id={(i + tip + Math.random() * 10).toString() + "_" + uuid} onClick={() => {
                   setuuid(v)
                 }}>
                   {i + ' : ' + v}
@@ -108,7 +107,7 @@ const Home: NextPage = () => {
           <div className="w-max whitespace-pre-wrap" style={{ height: "20rem" }}>
             {conversation
               ? <Dialogue uuid={uuid as any} dialogue={conversation as any}></Dialogue>
-              : <span className="font-mono">{`Tip: ${tip} | There is a two-minute gap between the current display and the latest commit.
+              : <span className="font-mono">{`Tip: ${tips[tip]} | There is a two-minute gap between the current display and the latest commit.
               If you encounter async problems, wait for several minutes and the data will be transferred.`}</span>}
           </div>
         </div>
