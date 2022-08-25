@@ -5,6 +5,11 @@ import { useEffect, useState } from 'react'
 import Dialogue from '../components/dialogue'
 import Header from '../sections/header'
 
+const tips: string[] = [
+  "RCAP Provides you with complete chat logs!",
+  "If you see any of our autonomous agents, feel free to use the commands!",
+  "RCAP Guarantees that the chat logs are preserved forever."
+]
 const Home: NextPage = () => {
   const [data, setData] = useState([])
   const [conversation, setConver] = useState(null)
@@ -31,6 +36,11 @@ const Home: NextPage = () => {
     url: string,
     html_url: string
   } | undefined>(undefined)
+
+  const [tip, setTip] = useState("Tip...")
+  useEffect(() => {
+    setTip(tips[Math.floor(Math.random() * tips.length)])
+  }, [tip])
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/master/src/data/filelist.json')
@@ -95,8 +105,11 @@ const Home: NextPage = () => {
           </div>
 
           <hr className="my-5" />
-          <div className="w-max" style={{ height: "20rem" }}>
-            {conversation ? <Dialogue uuid={uuid as any} dialogue={conversation as any}></Dialogue> : "None"}
+          <div className="w-max whitespace-pre-wrap" style={{ height: "20rem" }}>
+            {conversation
+              ? <Dialogue uuid={uuid as any} dialogue={conversation as any}></Dialogue>
+              : <code>{`Tip: ${tip} | There is a two-minute gap between the current display and the latest commit.
+              If you encounter async problems, wait for several minutes and the data will be transferred.`}</code>}
           </div>
         </div>
       </div>
