@@ -79,7 +79,7 @@ const Home: NextPage = () => {
 
       <Header />
       <div className="flex flex-row justify-center" style={{ marginTop: "calc(5rem + 5px)"}}>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center mx-4 px-4">
           <div className="flex justify-center w-full">
             <h1 className="text-4xl font-bold mb-2">
               This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/robloxarchivechatproject" target="_blank" rel="noreferrer">RACP</a>
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
           <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "15rem" }}>
             <ul className="list-none">
               {data.map((v, i) => (<li key={i}>
-                <button className={"btn m-1 " + (i + tip + Math.random() * 10).toString() + "_" + uuid} id={(i + tip + Math.random() * 10).toString() + "_" + uuid} onClick={() => {
+                <button className="btn m-1 text-sm" id={(i + tip + Math.random() * 10).toString() + "_" + uuid} onClick={() => {
                   setuuid(v)
                 }}>
                   {i + ' : ' + v}
@@ -106,14 +106,15 @@ const Home: NextPage = () => {
             </ul>
           </div>
 
-          <hr className="my-5" />
-          <div className="w-max whitespace-pre-wrap" style={{ height: "20rem" }}>
+        </div>
+
+          <div className="w-3/5 whitespace-pre-wrap" style={{ maxHeight: "70vh" }}>
+            <hr className="my-5" />
             {conversation
               ? <Dialogue uuid={uuid as any} dialogue={conversation as any}></Dialogue>
               : <span className="font-mono">{`Tip: ${tips[tip]} | There is a two-minute gap between the current display and the latest commit.
               If you encounter async problems, wait for several minutes and the data will be transferred.`}</span>}
           </div>
-        </div>
       </div>
       <Footer></Footer>
     </div>
