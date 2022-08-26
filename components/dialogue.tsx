@@ -21,8 +21,8 @@ function Dialogue({ uuid, dialogue }: {
         data: { user: user, message: string }[]
     }
 }) {
-    return <div className="text-lg" style={{ maxHeight: "20rem" }}>
-        <h2 className="font-mono text-2xl"># {uuid}</h2>
+    return <div style={{ maxHeight: "20rem" }}>
+        <h2 className="font-mono font-bold"># {uuid}</h2>
         <p>Game: <a className="link" href={"https://www.roblox.com/games/" + dialogue.game.toString()}>{dialogue.game}</a></p>
         <p>Owner: {createPlayerLink(dialogue.owner)}</p>
         <h3>Users:</h3>

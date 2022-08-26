@@ -33,6 +33,7 @@ const Home: NextPage = () => {
       url: string,
     }
     url: string,
+    sha: string,
     html_url: string
   } | undefined>(undefined)
 
@@ -42,12 +43,14 @@ const Home: NextPage = () => {
   }, [tip])
 
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/master/src/data/filelist.json')
+    if(commit == undefined || commit == null) return;
+// https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/34faa7a4d14fbc22cb52b1167c490902fc49d0dd/src/data/709dad93-b27f-4875-bc2a-d4888bf9cfa8.json
+    fetch(`https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/${commit.sha}/src/data/filelist.json`)
       .then((res) => res.json())
       .then((data) => {
         setData(data)
       })
-  }, [])
+  }, [commit])
 
   useEffect(() => {
     fetch('https://api.github.com/repos/robloxarchivechatproject/chatarchive.backend/branches/master')
@@ -75,18 +78,18 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      <div className="flex flex-row justify-center h-full">
+      <div className="flex flex-row justify-center" style={{ marginTop: "calc(5rem + 5px)"}}>
         <div className="flex flex-col justify-center">
           <div className="flex justify-center w-full">
-            <h1 className="text-6xl font-bold mb-2">
+            <h1 className="text-4xl font-bold mb-2">
               This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/robloxarchivechatproject" target="_blank" rel="noreferrer">RACP</a>
             </h1>
           </div>
           <div className="flex justify-center w-full">
             {
               commit ?
-                <footer className="text-xl">Last Update:{' '}
-                  <code className="text-2xl font-bold text-amber-800 dark:text-indigo-400">{commit.commit.author.date}
+                <footer className="text-lg">Last Update:{' '}
+                  <code className="text-lg font-bold text-amber-800 dark:text-indigo-400">{commit.commit.author.date}
                   </code> | <a className="link" href={commit.html_url} target="_blank" rel="noreferrer">Commit Link</a></footer> : <div>Fetching Data...</div>
             }
           </div>
