@@ -14,7 +14,7 @@
 
 
   .btn{
-    @apply inline-block px-5 py-3 rounded-lg dark:hover:bg-indigo-500 hover:bg-amber-400 transition duration-300 shadow-lg bg-amber-500 text-black  dark:bg-indigo-700 dark:text-white capitalize tracking-wider font-semibold text-sm sm:text-xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
+    @apply select-none inline-block px-5 py-3 rounded-lg dark:hover:bg-indigo-500 hover:bg-amber-400 transition duration-300 shadow-lg bg-amber-500 text-black  dark:bg-indigo-700 dark:text-white capitalize tracking-wider font-semibold text-sm sm:text-xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
   }
 
   .badge {

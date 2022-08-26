@@ -31,7 +31,7 @@ const Header = () => {
         }
     };
     return (
-        <header className="fixed top-0 w-screen flex justify-between flex-row h-15 shadow-sm dark:border-gray-700">
+        <header className="sticky top-0 w-screen flex justify-between flex-row h-15 shadow-sm dark:border-gray-700">
             <div className="container  px-4 sm:px-6 py-4 flex justify-between items-center">
                 <Logo />
                 {renderThemeChanger()}
