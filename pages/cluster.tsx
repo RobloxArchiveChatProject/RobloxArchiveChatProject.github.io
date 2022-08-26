@@ -21,7 +21,7 @@ function createPlayerLink(u: user, className: string = "link") {
     </a>
 }
 const geturl = (uuid: string) => {
-    return 'https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/master/src/data/' + uuid;
+    return 'https://raw.githubusercontent.com/rblxacp/ChatArchive.backend/master/src/data/' + uuid;
 }
 
 const Cluster = () => {
