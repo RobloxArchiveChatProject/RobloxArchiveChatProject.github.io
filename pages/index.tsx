@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   }, [tip])
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/robloxarchivechatproject/chatarchive.backend/branches/master')
+    fetch('https://api.github.com/repos/rblxacp/chatarchive.backend/branches/master')
       .then((res) => res.json())
       .then((data) => {
         setCommit(data.commit)
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col justify-center mx-4 px-4">
           <div className="flex justify-center">
             <h1 className="text-4xl font-bold mb-2">
-              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/robloxarchivechatproject" target="_blank" rel="noreferrer">RACP</a>
+              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/rblxacp" target="_blank" rel="noreferrer">RACP</a>
             </h1>
           </div>
           <div className="flex flex-row justify-center">
