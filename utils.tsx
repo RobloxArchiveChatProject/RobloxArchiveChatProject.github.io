@@ -44,3 +44,47 @@ export function createPlayerLink(u: user, className = "link") {
     {u.name}
   </a>
 }
+
+interface Color3 {
+  r: number,
+  g: number,
+  b: number
+}
+
+function fromRGB(r: number, g: number, b: number): Color3 {
+  return {
+    r: r,
+    g: g,
+    b: b
+  }
+}
+
+const NameColors = [
+  fromRGB(253, 41, 67),
+  fromRGB(1, 162, 255),
+  fromRGB(2, 184, 87),
+  fromRGB(107, 50, 124),
+  fromRGB(218, 133, 65),
+  fromRGB(245, 205, 48),
+  fromRGB(232, 186, 200),
+  fromRGB(215, 197, 154)
+]
+
+export function GetNameValue(pName: string) {
+  let value = 0
+  for (let i = 0; i < pName.length; i++) {
+    let cValue = pName.charCodeAt(i)
+    let reverseIndex = pName.length - i
+    if (pName.length % 2 == 1)
+      reverseIndex = reverseIndex - 1;
+    if (reverseIndex % 4 >= 2)
+      cValue = -cValue;
+    value = value + cValue
+  }
+  return value
+}
+
+const color_offset = 0
+export function ComputeNameColor(pName: string) {
+  return NameColors[((GetNameValue(pName) + color_offset) % NameColors.length)]
+}
