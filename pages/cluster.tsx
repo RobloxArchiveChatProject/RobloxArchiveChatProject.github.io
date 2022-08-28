@@ -50,7 +50,7 @@ const Cluster = () => {
                                 })}
                             </ul>
                             <br />
-                            <div className="overflow-auto scroll flex flex-col justify-start my-4 rounded-3xl bg-gray-200 dark:bg-slate-700 shadow-xl p-2">
+                            <div className="overflow-auto scroll flex flex-col justify-start my-4 rounded-3xl bg-gray-200 dark:bg-zinc-800 shadow-xl p-2">
                                 {dialogue.data.map((v, i) => {
                                     const val = ComputeNameColor(v.user.name)
                                     return <div key={i} className="font-semibold px-2">
