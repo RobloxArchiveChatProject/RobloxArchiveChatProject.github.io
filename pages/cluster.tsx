@@ -40,7 +40,7 @@ const Cluster = () => {
                         ? <div className={"p-4 rounded-2xl " + (dialogue.pkgversion === "0.0.2" ? "neon" : "")}>
                             <h1 className={"text-lg lg:text-3xl font-semibold " + ((loading) ? "text-red-700 font-bold" : "")}> {currentUUID} </h1>
                             <p>Game: <a className="link" href={"https://www.roblox.com/games/" + dialogue.game.toString()}>{dialogue.game}</a></p>
-                            <p className={dialogue.pkgversion === "0.0.2" ? "dark:text-amber-600 text-orange-700 font-bold text-xl" : ""}>PKG Version: {dialogue.pkgversion}{dialogue.pkgversion === "0.0.2" ? " PUBLIC BETA!\u{1f973}" : ""}</p>
+                            <p className={dialogue.pkgversion === "0.0.2" ? "dark:text-amber-600 text-orange-700 font-bold text-lg" : ""}>PKG Version: {dialogue.pkgversion}{dialogue.pkgversion === "0.0.2" ? " PUBLIC BETA!\u{1f973}" : ""}</p>
                             <p>Record Date: {dialogue.date}</p>
                             <p>Owner: {createPlayerLink(dialogue.owner)}</p>
                             <h3>Users:</h3>
