@@ -39,6 +39,8 @@ const Cluster = () => {
                     (!loading && dialogue)
                         ? <>
                             <p>Game: <a className="link" href={"https://www.roblox.com/games/" + dialogue.game.toString()}>{dialogue.game}</a></p>
+                            <p>PKG Version: ${dialogue.pkgversion}</p>
+                            <p>Record Date: ${dialogue.date}</p>
                             <p>Owner: {createPlayerLink(dialogue.owner)}</p>
                             <h3>Users:</h3>
                             <ul className="list-decimal list-inside pl-3.5">

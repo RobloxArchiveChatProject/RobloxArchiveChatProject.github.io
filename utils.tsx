@@ -29,6 +29,8 @@ export type dialogue = {
   game: number,
   owner: user,
   users: user[],
+  pkgversion: string,
+  date: string,
   data: { user: user, message: string }[]
 }
 // Helper functions
