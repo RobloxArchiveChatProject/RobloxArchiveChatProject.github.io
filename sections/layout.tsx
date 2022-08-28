@@ -1,4 +1,3 @@
-import Header from "./header";
 import Footer from "./footer";
 import Head from "next/head";
 
@@ -12,7 +11,6 @@ const Layout = ({ children }: any) => {
             </Head>
 
             <div className="min-h-screen mx-auto max-w-2xl flex flex-col">
-                <Header />
                 <main className="flex-grow container mx-auto px-4 sm:px-6">
                     {children}
                 </main>
