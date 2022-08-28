@@ -1,9 +1,11 @@
 import { MoonOutline as MoonIcon, SunOutline as SunIcon } from "@graywolfai/react-heroicons";
 import { useTheme } from "next-themes";
+import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "../components/logo";
 
-const Header = () => {
+const Header = ({ branch }: { branch: string | undefined }) => {
 
     const { systemTheme, theme, setTheme } = useTheme();
 
@@ -31,12 +33,25 @@ const Header = () => {
         }
     };
     return (
-        <header className="sticky top-0 w-screen flex justify-between flex-row h-15 shadow-sm dark:border-gray-700">
-            <div className="container  px-4 sm:px-6 py-4 flex justify-between items-center">
-                <Logo />
-                {renderThemeChanger()}
-            </div>
-        </header>
+        <>
+            <Head>
+                <title>RACP{(branch !== undefined ? ` | ${branch}` : "")}</title>
+                <meta name="description" content="Welcome to RACP" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <header className="sticky top-0 w-screen flex justify-between flex-row h-15 shadow-sm dark:border-gray-700">
+                <div className="container  px-4 sm:px-6 py-4 flex justify-start items-center">
+                    <Logo branch={branch} />
+                    {renderThemeChanger()}
+                </div>
+
+            </header>
+
+            {
+                branch ?
+                    <Link href="/"><div className="btn w-min mx-8" > Go Back</div></Link> : <></>
+            }
+        </>
     );
 }
 

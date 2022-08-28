@@ -14,7 +14,11 @@
 
 
   .btn{
-    @apply select-none inline-block px-5 py-3 rounded-lg dark:hover:bg-indigo-500 hover:bg-amber-400 transition duration-300 shadow-lg bg-amber-500 text-black  dark:bg-indigo-700 dark:text-white capitalize tracking-wider font-semibold text-sm sm:text-xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
+    @apply select-none inline-block px-3 py-3 m-2 rounded-lg dark:hover:bg-indigo-500 hover:bg-amber-400 transition duration-300 shadow-lg bg-amber-500 text-black  dark:bg-indigo-700 dark:text-white capitalize tracking-wider font-semibold text-sm sm:text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
+  }
+
+  .btn-sm{
+    @apply select-none inline-block px-2 py-2 m-2 rounded-lg dark:hover:bg-indigo-500 hover:bg-amber-400 transition duration-300 shadow-md bg-amber-500 text-black  dark:bg-indigo-700 dark:text-white capitalize tracking-wider font-semibold text-sm sm:text-lg focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
   }
 
   .badge {
@@ -26,5 +30,8 @@
   }
   .d-link {
     @apply text-slate-900 hover:text-zinc-700 dark:text-sky-900 dark:hover:text-sky-200 hover:underline transition duration-200 font-bold
+  }
+  .search {
+    @apply form-input px-3 py-2 rounded-md dark:text-slate-100 dark:bg-zinc-700 text-slate-800 bg-orange-200 font-bold
   }
 }

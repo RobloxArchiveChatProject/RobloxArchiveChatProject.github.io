@@ -1,54 +1,30 @@
 import { Footer } from 'flowbite-react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Header from '../sections/header'
+import { ICommitObject } from '../utils'
 const tips: string[] = [
   "RCAP Provides you with complete chat logs!",
   "If you see any of our autonomous agents, feel free to use the commands!",
-  "RCAP Guarantees that the chat logs are preserved forever."
+  "RCAP Guarantees that the chat logs are preserved forever.",
+  "I'll release a blog soon on this site!"
 ]
-const Home: NextPage = () => {
-  const [data, setData] = useState([])
-  const [conversation, setConver] = useState(null)
-  const [isLoading, setLoading] = useState(true)
 
-  const [commit, setCommit] = useState<{
-    commit: {
-      author: {
-        name: string
-        date: string
-      },
-      committer: {
-        name: string
-        date: string
-      },
-      message: string,
-      tree: {
-        sha: string,
-        url: string
-      },
-      url: string,
-    }
-    url: string,
-    sha: string,
-    html_url: string
-  } | undefined>(undefined)
+const createBtn = (message: string, href: string) => {
+  return <Link href={href}>
+    <div className="btn lg:mx-4 mx-1">
+      {message}
+    </div>
+  </Link>
+}
+const Home: NextPage = () => {
+  const [commit, setCommit] = useState<ICommitObject | undefined>(undefined)
 
   const [tip, setTip] = useState(0)
   useEffect(() => {
     setTip(Math.floor(Math.random() * tips.length))
   }, [tip])
-
-  useEffect(() => {
-    if (commit == undefined || commit == null) return;
-    fetch(`https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/${commit.sha}/src/data/filelist.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-      })
-  }, [commit])
 
   useEffect(() => {
     fetch('https://api.github.com/repos/robloxarchivechatproject/chatarchive.backend/branches/master')
@@ -60,18 +36,13 @@ const Home: NextPage = () => {
 
   return (
     <div className='w-screen'>
-      <Head>
-        <title>Roblox Archive Chat Project</title>
-        <meta name="description" content="Welcome to RACP" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
-      <Header />
+      <Header branch={undefined} />
       <div className="flex flex-row justify-center">
         <div className="flex flex-col justify-center mx-4 px-4">
           <div className="flex justify-center">
-            <h1 className="text-4xl font-bold mb-2">
-              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/robloxarchivechatproject" target="_blank" rel="noreferrer">RACP</a>
+            <h1 className="text-6xl lg:text-8xl font-bold mb-2">
+              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/rblxacp" target="_blank" rel="noreferrer">RACP</a>
             </h1>
           </div>
           <div className="flex flex-row justify-center">
@@ -84,16 +55,14 @@ const Home: NextPage = () => {
               }</div>
           </div>
 
-          <div className="flex justify-center w-full m-2 overflow-auto" style={{ maxHeight: "15rem" }}>
-            <ul className="list-none">
-              {data.map((v, i) => (<li key={i}>
-                <Link href={`/cluster?uuid=${v}`}>
-                  <div className="btn m-1 text-sm">
-                    {i + ' : ' + v}
-                  </div>
-                </Link>
-              </li>))}
-            </ul>
+          <div className="flex font-mono justify-center m-2 overflow-auto">
+            {tips[tip]}
+          </div>
+
+          <div className="flex flex-row justify-evenly mx-2 mt-2">
+            {createBtn("Search Owner", `/sowner?sha=${commit?.sha}`)}
+            {createBtn("Search Game", `/sgame?sha=${commit?.sha}`)}
+            {createBtn("List All", `/listall?sha=${commit?.sha}`)}
           </div>
 
         </div>
