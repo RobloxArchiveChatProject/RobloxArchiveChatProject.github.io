@@ -6,7 +6,7 @@ import { createPlayerLink, dialogue } from "../utils";
 
 
 const geturl = (uuid: string) => {
-    return 'https://raw.githubusercontent.com/RobloxArchiveChatProject/ChatArchive.backend/master/src/data/' + uuid;
+    return 'https://raw.githubusercontent.com/rblxacp/ChatArchive.backend/master/src/data/' + uuid;
 }
 
 const Cluster = () => {

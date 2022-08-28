@@ -7,8 +7,7 @@ import { ICommitObject } from '../utils'
 const tips: string[] = [
   "RCAP Provides you with complete chat logs!",
   "If you see any of our autonomous agents, feel free to use the commands!",
-  "RCAP Guarantees that the chat logs are preserved forever.",
-  "I'll release a blog soon on this site!"
+  "RCAP Guarantees that the chat logs are preserved forever."
 ]
 
 const createBtn = (message: string, href: string) => {
@@ -41,8 +40,8 @@ const Home: NextPage = () => {
       <div className="flex flex-row justify-center">
         <div className="flex flex-col justify-center mx-4 px-4">
           <div className="flex justify-center">
-            <h1 className="text-6xl lg:text-8xl font-bold mb-2">
-              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/rblxacp" target="_blank" rel="noreferrer">RACP</a>
+            <h1 className="text-4xl font-bold mb-2">
+              This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/robloxarchivechatproject" target="_blank" rel="noreferrer">RACP</a>
             </h1>
           </div>
           <div className="flex flex-row justify-center">
