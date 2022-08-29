@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
       <Header branch={undefined} />
       <div className="flex flex-row justify-center">
-        <div className="flex flex-col justify-center mx-4 px-4">
+        <div className="flex flex-col justify-center max-w-screen mt-2">
           <div className="flex justify-center">
             <h1 className="text-4xl font-bold mb-2">
               This is <a className="text-amber-800 dark:text-violet-500 hover:underline" href="https://github.com/rblxacp" target="_blank" rel="noreferrer">RACP</a>
@@ -58,10 +58,11 @@ const Home: NextPage = () => {
             {tips[tip]}
           </div>
 
-          <div className="flex flex-row justify-evenly mx-2 mt-2">
+          <div className="flexbox flex-row justify-evenly mx-2 mt-2">
             {createBtn("Search Owner", `/sowner?sha=${commit?.sha}`)}
             {createBtn("Search Game", `/sgame?sha=${commit?.sha}`)}
             {createBtn("List All", `/listall?sha=${commit?.sha}`)}
+            {createBtn("Blog(NEW)", `/blog`)}
           </div>
 
         </div>

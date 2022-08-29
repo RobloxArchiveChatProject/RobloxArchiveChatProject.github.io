@@ -6,7 +6,14 @@
   body {
     @apply bg-zinc-200 text-gray-900 dark:bg-zinc-900 dark:text-gray-100;
     @apply min-h-screen;
+    @apply transition;
   }
+
+  h1,h2,h3,h4 { @apply font-bold m-1 text-amber-800 dark:text-cyan-100; }
+  h1 { @apply lg:text-6xl text-4xl; }
+  h2 { @apply lg:text-4xl text-2xl; }
+  h3 { @apply lg:text-3xl text-2xl; }
+  h4 { @apply lg:text-xl text-lg; }
 
   ::selection {
     @apply text-white bg-indigo-500;
@@ -38,7 +45,7 @@
 
 .neon {
   background-color: rgba(0,0,0,0);
-  box-shadow: 0px 0px 40px 20px rgb(255, 174, 0);
+  box-shadow: 0px 0px 40px 20px rgba(255, 174, 0, 0.37);
 }
 .scroll {
   scrollbar-width: thin;
