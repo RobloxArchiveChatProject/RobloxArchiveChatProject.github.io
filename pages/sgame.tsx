@@ -18,7 +18,7 @@ const Sgame = () => {
     const router = useRouter();
     const { sha } = router.query;
 
-    const [gamelist, setGamelist] = useState<Map<string, string[]> | undefined>(undefined);
+    const [gamelist, setGamelist] = useState<Map<string, { gameName: string, uuid: string[] }> | undefined>(undefined);
     const [toDisplay, setToDisplay] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
     const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
@@ -41,7 +41,7 @@ const Sgame = () => {
         const arr: string[] = []
         gamelist?.forEach((v, i) => {
             if (i.indexOf(searchValue) !== -1)
-                arr.push(...v)
+                arr.push(...v.uuid)
         })
         setToDisplay(arr)
     }, [searchValue, gamelist])
@@ -64,12 +64,12 @@ const Sgame = () => {
                 <div className="mt-4 overflow-y-auto" style={{ maxHeight: "75%" }}>
                     {
                         searchValue === undefined && gamelist !== undefined
-                            ? iter(gamelist.keys(), (v: string) => {
-                                return <div className="flex flex-col" key={v}>
-                                    <span className="text-lg">{v}</span>
+                            ? iter(gamelist.keys(), (ov: string) => {
+                                return <div className="flex flex-col" key={ov}>
+                                    <span className="text-lg">{ov + "|" + gamelist.get(ov)?.gameName ?? "No Name"}</span>
                                     <hr className="my-2" />
                                     {
-                                        gamelist.get(v)?.map((v, i) => {
+                                        gamelist.get(ov)?.uuid.map((v, i) => {
                                             return <Link key={i} href={`/cluster?uuid=${v}`}><div className="btn-sm">{v}</div></Link>
                                         })
                                     }
